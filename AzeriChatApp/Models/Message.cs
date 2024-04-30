@@ -4,7 +4,7 @@ public class Message
 {
 	private string? _text;
 
-	public string Text
+	public string? Text
 	{
 		get { return _text; }
 		set { _text = value; }
@@ -23,4 +23,8 @@ public class Message
 		Text = text;
 		Date = date;
 	}
+    public Message()
+    {
+        
+    }
 }

@@ -5,54 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         
-        Title="ChatWindow" Height="450" Width="800">
+        Title="ChatWindow" Height="700" Width="500" 
+        ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
 
+    <StackPanel>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="100"/>
-        </Grid.RowDefinitions>
+        <StackPanel Height="100" Orientation="Horizontal" Background="#1BBCE0">
 
-        <StackPanel Grid.Row="0">
+            <Image Source="..\Images\plane.ico" Width="65" Height="65" Margin="70,0,0,0" ToolTip="LOGO"/>
 
-            <Image>
-
-            </Image>
-
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center">
-                Azeri Chat App
-            </Label>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50,0,0,0"
+                   Content="Azeri-Chat" FontSize="26" FontWeight="DemiBold" />
 
         </StackPanel>
 
-        <ListBox x:Name="AppChat" Grid.Row="1" Background="Silver">
+        <Label Height="2" Background="Black"/>
+
+        <ListBox x:Name="AppChat" Height="475" ItemsSource="{Binding Chat}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Date}" Margin="0,0,20,0"/>
-                        <TextBlock Text="{Binding Text}"/>
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="{Binding Date}" Margin="180,0,20,0" FontSize="9"/>
+                        <Label Content="{Binding Text}" Margin="5,0,20,0" FontSize="15"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal">
+        <StackPanel x:Name="sendSP" Height="90" Orientation="Horizontal">
 
-            <TextBox x:Name="MessageText" Width="440">
+            <TextBox x:Name="MessageText" Width="400" FontSize="17" Margin="10,0,0,0" 
+                     Height="45" VerticalContentAlignment="Center" ToolTip="Enter Message Text ..."/>
 
-            </TextBox>
+            <Button x:Name="SendMessageButton" Width="50" Height="50"
+                    Margin="14,0,0,0" Click="SendMessageButtonClick" Background="Transparent">
 
-            <Button x:Name="SendMessageButton" Width="140" Height="50" Content="Send" Click="SendMessageButtonClick">
+                <Button.ToolTip>Send Message</Button.ToolTip>
                 <!--    <Image/>  -->
-
+                <Image HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,0"
+                       Source="..\Images\send.ico" Width="25" Height="25"/>
 
             </Button>
-
         </StackPanel>
-
-    </Grid>
-
-
+    </StackPanel>
 </Window>
