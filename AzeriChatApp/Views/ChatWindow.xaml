@@ -1,0 +1,58 @@
+﻿<Window x:Class="AzeriChatApp.Views.ChatWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        
+        Title="ChatWindow" Height="450" Width="800">
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+
+            <Image>
+
+            </Image>
+
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                Azeri Chat App
+            </Label>
+
+        </StackPanel>
+
+        <ListBox x:Name="AppChat" Grid.Row="1" Background="Silver">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Date}" Margin="0,0,20,0"/>
+                        <TextBlock Text="{Binding Text}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+
+            <TextBox x:Name="MessageText" Width="440">
+
+            </TextBox>
+
+            <Button x:Name="SendMessageButton" Width="140" Height="50" Content="Send" Click="SendMessageButtonClick">
+                <!--    <Image/>  -->
+
+
+            </Button>
+
+        </StackPanel>
+
+    </Grid>
+
+
+</Window>
